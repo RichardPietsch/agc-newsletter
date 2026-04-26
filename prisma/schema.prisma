@@ -1,0 +1,42 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id           String       @id @default(cuid())
+  email        String       @unique
+  name         String
+  passwordHash String
+  newsletters  Newsletter[]
+  createdAt    DateTime     @default(now())
+}
+
+model Newsletter {
+  id        String             @id @default(cuid())
+  title     String
+  ownerId   String
+  owner     User               @relation(fields: [ownerId], references: [id])
+  modules   NewsletterModule[]
+  createdAt DateTime           @default(now())
+  updatedAt DateTime           @updatedAt
+}
+
+model NewsletterModule {
+  id           String     @id @default(cuid())
+  newsletterId String
+  newsletter   Newsletter @relation(fields: [newsletterId], references: [id], onDelete: Cascade)
+  type         String
+  title        String
+  body         String
+  imageUrl     String?
+  link         String?
+  position     Int
+  createdAt    DateTime   @default(now())
+
+  @@index([newsletterId, position])
+}
