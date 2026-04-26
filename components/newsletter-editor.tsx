@@ -77,7 +77,7 @@ export function NewsletterEditor({
 
   return (
     <>
-      <div className="grid gap-6 lg:grid-cols-2">
+      <div className="grid gap-6 xl:grid-cols-2">
         <section className="space-y-4 rounded-xl bg-white p-4 shadow">
           <div className="flex flex-wrap items-end gap-3 border-b pb-4">
             <label className="text-sm">
@@ -177,7 +177,7 @@ export function NewsletterEditor({
           <iframe
             title="Live newsletter preview"
             srcDoc={previewHtml}
-            className="h-[80vh] w-full rounded-lg border"
+            className="h-[calc(100vh-220px)] min-h-[620px] w-full rounded-lg border"
           />
         </section>
       </div>

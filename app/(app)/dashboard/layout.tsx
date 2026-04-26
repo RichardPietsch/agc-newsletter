@@ -8,7 +8,7 @@ export default async function DashboardLayout({ children }: { children: React.Re
   if (!session?.user) redirect("/login");
 
   return (
-    <div className="mx-auto min-h-screen max-w-6xl p-6">
+    <div className="min-h-screen w-full p-4 md:p-6">
       <header className="mb-6 flex items-center justify-between border-b border-slate-300 pb-4">
         <div>
           <h1 className="text-2xl font-semibold text-agc-navy">AGC Newsletter Builder</h1>
