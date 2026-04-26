@@ -1,0 +1,17 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  @apply bg-agc-cream text-slate-900;
+}
+
+input,
+textarea,
+select {
+  @apply rounded-md border border-slate-300 bg-white px-3 py-2;
+}
+
+button {
+  @apply rounded-md px-3 py-2 font-medium;
+}
