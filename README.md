@@ -57,3 +57,7 @@ Default local login:
 - Rich text controls and stricter link validation
 - Role-based users (office staff / admin)
 - Versioning + preview emails
+
+## Docker runtime note
+
+The Docker image now uses `node:20-bookworm-slim` and installs OpenSSL explicitly, which fixes the Prisma engine startup issue seen on Alpine-based images.
